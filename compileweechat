@@ -1,0 +1,23 @@
+#!/bin/bash
+if [ "$HOSTNAME" = azazel ]; then
+        cd ~
+        git clone https://github.com/weechat/weechat
+        cd weechat
+        mkdir build
+        cd build
+        cmake .. -DENABLE_NLS=OFF -DCMAKE_INSTALL_PREFIX=$HOME
+        make
+        make install
+        echo '*/upgrade ~/bin/weechat' > `find ~/.weechat -name "weechat_fifo_*"`
+        export PATH=$HOME/bin:$PATH
+        rm -rf ~/weechat
+        mkdir ~/.weechat
+        cp ~edu/wcconf/* ~/.weechat/
+        user=`whoami`
+        sed -i "s/PUT YOUR USERNAME HERE/$user/g" ~/.weechat/irc.conf
+        echo "alias weechat='~/bin/weechat'" >> ~/.zshrc
+        echo "alias chat='~/bin/weechat'" >> ~/.zshrc
+        source ~/.zshrc
+else
+        printf '%s\n' "uh-oh, not on azazel, ssh azazel and try again"
+fi
