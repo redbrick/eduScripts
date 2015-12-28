@@ -15,6 +15,7 @@ if [ "$HOSTNAME" = azazel ]; then
         cp ~edu/wcconf/* ~/.weechat/
         user=`whoami`
         sed -i "s/PUT YOUR USERNAME HERE/$user/g" ~/.weechat/irc.conf
+        sed -i "s/NICKSERV_PASSWORD/$1/g" ~/.weechat/irc.conf
         echo "alias weechat='~/bin/weechat'" >> ~/.zshrc
         echo "alias chat='~/bin/weechat'" >> ~/.zshrc
         source ~/.zshrc

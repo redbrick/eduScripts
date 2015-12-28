@@ -1,0 +1,3 @@
+cp ~edu/.screenrc ~
+echo screen -dr >> .zlogin
+echo In your screen type Ctrl + a and : source $HOME/.screenrc
