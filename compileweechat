@@ -16,8 +16,8 @@ if [ "$HOSTNAME" = azazel ]; then
         user=`whoami`
         sed -i "s/PUT YOUR USERNAME HERE/$user/g" ~/.weechat/irc.conf
         sed -i "s/NICKSERV_PASSWORD/$1/g" ~/.weechat/irc.conf
-        echo "alias weechat='~/bin/weechat'" >> ~/.zshrc
-        echo "alias chat='~/bin/weechat'" >> ~/.zshrc
+        #echo "alias weechat='~/bin/weechat'" >> ~/.zshrc
+        #echo "alias chat='~/bin/weechat'" >> ~/.zshrc
         source ~/.zshrc
 else
         printf '%s\n' "uh-oh, not on azazel, ssh azazel and try again"
