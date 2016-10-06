@@ -1,4 +1,4 @@
-git clone https://github.com/redbrick/tmux-config.git ~/.tmux
+git clone https://github.com/redbrick/redbrick-tmux-config.git ~/.tmux
 ln -s ~/.tmux/.tmux.conf ~/.tmux.conf
 pip install --user psutil
 mkdir ~/bin
