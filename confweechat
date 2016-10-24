@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ "$HOSTNAME" = pygmalion ]; then
+    	mkdir ~/.weechat 
+    	cd ~/.weechat
+    	wget https://raw.githubusercontent.com/redbrick/eduScripts/master/wcconf/weechat.conf
+    	wget https://raw.githubusercontent.com/redbrick/eduScripts/master/wcconf/trigger.conf
+    	wget https://raw.githubusercontent.com/redbrick/eduScripts/master/wcconf/irc.conf
+    	wget https://raw.githubusercontent.com/redbrick/eduScripts/master/wcconf/alias.conf
+    	
+    	user=`whoami`
+    	sed -i "s/PUT YOUR USERNAME HERE/$user/g" ~/.weechat/irc.conf
+        sed -i "s/NICKSERV_PASSWORD/$1/g" ~/.weechat/irc.conf
+
+else
+        printf '%s\n' "You're not on Pygmalion! SSH to Pygmalion (ssh pyg) and try again."
+fi 
