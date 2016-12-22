@@ -1,8 +1,5 @@
 git clone https://github.com/redbrick/redbrick-tmux-config.git ~/.tmux
-ln -s ~/.tmux/.tmux.conf ~/.tmux.conf
+ln -s ~/.tmux/tmux.conf ~/.tmux.conf
 pip install --user psutil
-mkdir ~/bin
-cp ~/.tmux/vendor/basic-cpu-and-memory.tmux ~/bin/tmux-mem-cpu-load
-chmod +x ~/bin/tmux-mem-cpu-load
 echo tmux attach >> .zlogin
 tmux source-file ~/.tmux.conf
