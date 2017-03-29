@@ -1,17 +1,19 @@
-mkdir ~/public_html/backup
-mv  ~/public_html/* ~/public_html/backup/
-cp ~edu/wordpress.tar.gz ~/public_html
-cd ~/public_html
-touch .htaccess
-chmod 755 .htaccess
-tar  -pxzvf  wordpress.tar.gz
-mv  ./wordpress/*  ./
-rm -rf wordpress wordpress.tar.gz
-mv wp-config-sample.php  wp-config.php
+#!/bin/bash
+
+mkdir $HOME/public_html/oldSite
+mv  $HOME/public_html/* $HOME/public_html/oldSite
+curl https://wordpress.org/latest.tar.gz -o $HOME/latest.tar.gz
+touch $HOME/public_html/.htaccess
+chmod 755 $HOME/public_html/.htaccess
+tar -pxzvf $HOME/latest.tar.gz -C $HOME/public_html/
+rm -rf $HOME/public_html/latest.tar.gz
+mv $HOME/public_html/wp-config-sample.php $HOME/public_html/wp-config.php
 #edit wp-config with details
-user=`whoami`
-sed -i "s/database_name_here/$user/g" wp-config.php
-sed -i "s/username_here/$user/g" wp-config.php
-sed -i "s/password_here/$1/g" wp-config.php
-sed -i "s/localhost/mysql.internal/g" wp-config.php
-chmod 400 wp-config.php
+user=$(whoami)
+echo "enter your mysql password"
+read PASS
+sed -i "s/database_name_here/$user/g" $HOME/public_html/wp-config.php
+sed -i "s/username_here/$user/g" $HOME/public_html/wp-config.php
+sed -i "s/password_here/$PASS/g" $HOME/public_html/wp-config.php
+sed -i "s/localhost/mysql.internal/g" $HOME/public_html/wp-config.php
+chmod 400 $HOME/public_html/wp-config.php
