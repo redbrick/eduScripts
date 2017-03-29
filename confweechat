@@ -6,7 +6,7 @@ curl https://raw.githubusercontent.com/redbrick/eduScripts/master/wcconf/irc.con
 curl https://raw.githubusercontent.com/redbrick/eduScripts/master/wcconf/alias.conf -o $HOME/.weechat/alias.conf
 
 user=$(whoami)
-sed -i "s/PUT YOUR USERNAME HERE/$user/g" $HOME/.weechat/irc.conf
+sed -i "s/USERNAME_HERE/$user/g" $HOME/.weechat/irc.conf
 echo "Have you set up your NickServ Password?(y/N)"
 read answer
 if echo "$answer" | grep -iq "^y" ; then
