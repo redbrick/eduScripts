@@ -1,3 +1,5 @@
-cp ~edu/.screenrc ~
-echo screen -dr >> .zlogin
+#!/bin/bash
+
+curl https://raw.githubusercontent.com/redbrick/eduScripts/master/screenrc -o $HOME/.screenrc
+echo screen -dr >> $HOME/.zlogin
 echo In your screen type Ctrl + a and : source $HOME/.screenrc
