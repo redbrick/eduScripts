@@ -1,18 +1,18 @@
 #!/bin/bash
 mkdir ~/.weechat
-curl https://raw.githubusercontent.com/redbrick/eduScripts/master/wcconf/weechat.conf -o $HOME/.weechat/weechat.conf
-curl https://raw.githubusercontent.com/redbrick/eduScripts/master/wcconf/trigger.conf -o $HOME/.weechat/trigger.conf
-curl https://raw.githubusercontent.com/redbrick/eduScripts/master/wcconf/irc.conf -o $HOME/.weechat/irc.conf
-curl https://raw.githubusercontent.com/redbrick/eduScripts/master/wcconf/alias.conf -o $HOME/.weechat/alias.conf
+curl https://raw.githubusercontent.com/redbrick/eduScripts/master/wcconf/weechat.conf -o "$HOME/.weechat/weechat.conf"
+curl https://raw.githubusercontent.com/redbrick/eduScripts/master/wcconf/trigger.conf -o "$HOME/.weechat/trigger.conf"
+curl https://raw.githubusercontent.com/redbrick/eduScripts/master/wcconf/irc.conf -o "$HOME/.weechat/irc.conf"
+curl https://raw.githubusercontent.com/redbrick/eduScripts/master/wcconf/alias.conf -o "$HOME/.weechat/alias.conf"
 
 user=$(whoami)
-sed -i "s/USERNAME_HERE/$user/g" $HOME/.weechat/irc.conf
+sed -i "s/USERNAME_HERE/$user/g" "$HOME/.weechat/irc.conf"
 echo "Have you set up your NickServ Password?(y/N)"
-read answer
+read -r answer
 if echo "$answer" | grep -iq "^y" ; then
   echo "What is your Paswword"
-  read PASS
-  sed -i "s/NICKSERV_PASSWORD/$PASS/g" $HOME/.weechat/irc.conf
+  read -r PASS
+  sed -i "s/NICKSERV_PASSWORD/$PASS/g" "$HOME/.weechat/irc.conf"
 else
   echo "Remeber to msg Nickserv to register"
 fi

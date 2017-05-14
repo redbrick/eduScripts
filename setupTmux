@@ -1,10 +1,10 @@
 #!/bin/bash
 
-git clone https://github.com/redbrick/tmux-config.git $HOME/.tmux
-ln -s $HOME/.tmux/.tmux.conf $HOME/.tmux.conf
+git clone https://github.com/redbrick/tmux-config.git "$HOME/.tmux"
+ln -s "$HOME/.tmux/.tmux.conf" "$HOME/.tmux.conf"
 pip install --user psutil
-mkdir $HOME/bin
-cp $HOME/.tmux/vendor/basic-cpu-and-memory.tmux $HOME/bin/tmux-mem-cpu-load
-chmod +x $HOME/bin/tmux-mem-cpu-load
-echo tmux attach >> $HOME/.zlogin
-tmux source-file $HOME/.tmux.conf
+mkdir "$HOME/bin"
+cp "$HOME/.tmux/vendor/basic-cpu-and-memory.tmux" "$HOME/bin/tmux-mem-cpu-load"
+chmod +x "$HOME/bin/tmux-mem-cpu-load"
+echo tmux attach >> "$HOME/.zlogin"
+tmux source-file "$HOME/.tmux.conf"
