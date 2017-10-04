@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git clone https://github.com/redbrick/tmux-config.git "$HOME/.tmux"
+git clone https://github.com/redbrick/redbrick-tmux-config.git "$HOME/.tmux"
 ln -s "$HOME/.tmux/.tmux.conf" "$HOME/.tmux.conf"
 pip install --user psutil
 mkdir "$HOME/bin"
